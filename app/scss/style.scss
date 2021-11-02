@@ -99,6 +99,7 @@
         height: 1px;
         overflow: hidden;
         clip: rect(0 0 0 0);
+        position: absolute;
         &:checked + .filter__checkbox{
           background-image: url('../images/check-quiz.svg');
           background-position: center center;
@@ -121,7 +122,7 @@
         border: 1px solid #CFCFCF;
         background-color: #fff;
         position: absolute;
-        margin-left: -35px;
+        margin-left: -28px;
         margin-top: 0;
         border-radius: 3px;
         cursor: pointer;
