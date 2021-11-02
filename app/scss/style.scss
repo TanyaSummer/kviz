@@ -1,6 +1,172 @@
-@import 'vars'; /*сюда писать переменные для цвета, для шрифта и т.д. и кусочки кода*/
+@import 'vars'; 
 @import 'fonts';
-@import 'reset';/*сюда пишу reset.css*/
-@import 'global';/*что я пишу для body, для ссылок и т.д*/
-@import 'media'; /*медиазапросы*/
+@import 'reset';
+@import 'global';
+// @import 'media';
+
+.quiz{
+  .quiz-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 610px;
+    max-width: 1394px;
+    background-color: #f5f5f5;
+    @extend %proximaNovaBold;
+    font-size: 20px;
+    text-align: center;
+    margin: 114px 0 43px;
+    border: solid 1px #e3e3e3;
+    outline: 3px solid #fff; 
+    outline-offset: -20px; /* Выводим рамку внутри элемента */
+    border-radius: 7px;
+    position: relative;
+    &__num{
+      font-size: 16px;
+      color: #fff;
+      position: absolute;
+      top: -8px;
+      right: 0;
+      left: 0;
+      margin: auto;
+    }
+    &__icon{
+      &::before{
+        background: linear-gradient(180deg, #4BC940 0%, #37A52E 100%);;
+        width: 52px;
+        height: 52px;
+        border-radius: 50px;
+        position: absolute;
+        content: ' ';
+        color: #fff;
+        top: -26px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        border: 5px solid #fff;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+    &__title{
+      margin-top: 85px;
+      @extend %proximaNovaBold;
+      font-size: 32px;
+      line-height: 38px;
+      color:#353535;
+      margin-bottom: 59px;
+    }
+    &__drop{
+        max-width: 152px;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding-top: 55px;
+          span{
+            background: #CCCCCC;
+            width: 8px;
+            height: 8px;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-right: 11px;
+            padding: 0;
+          }
+    }
+    .quiz-box__drop span:first-child{
+      background: #FF7B31;
+    }
+    .filter{
+      &__form{
+        display: flex;
+        gap: 60px;
+      }
+      &__box{
+        max-height: 222px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      &__label{
+        margin-bottom: 14px;
+        margin-left: 26px;
+        @extend %proximaNovaRegular;
+        font-size: 16px;
+      }
+      &__input{
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        &:checked + .filter__checkbox{
+          background-image: url('../images/check-quiz.svg');
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-color: #FF8D01;
+        }
+      }
+      &__label-text{
+        margin-left: 0;
+      }
+      &__input-text{
+        max-width: 178px;
+        height: 37px;
+        cursor: pointer;
+      }
+      
+      &__checkbox{
+        width: 20px;
+        height: 20px;
+        border: 1px solid #CFCFCF;
+        background-color: #fff;
+        position: absolute;
+        margin-left: -35px;
+        margin-top: 0;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+    .next{
+      &__btn{
+        font-size: 21px;
+        color: #fff;
+        @extend %proximaNovaBold;
+        background: linear-gradient(180deg, #FFB800 0%, #FF8000 100%);
+        border: none;
+        width: 178px;
+        height: 47px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        // justify-content: space-evenly;
+        position: relative;
+      }
+      &__btn-text{
+        line-height: 45px;
+        margin-left: 33px;
+        &::after{
+          content: '';
+          width: 1px;
+          height: 47px;
+          background-color: #FFBB54;
+          position: absolute;
+          top: 0;
+          right: 50px;
+        }
+      }
+      &__btn-img{
+        position:absolute;
+        top: 18px;
+        right: 18px;
+      }
+    }
+    
+    
+    
+    
+  }
+  
+}
+
+
 
