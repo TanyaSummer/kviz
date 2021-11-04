@@ -2,26 +2,33 @@
 @import 'fonts';
 @import 'reset';
 @import 'global';
-// @import 'media';
 
-.quiz{
-  .quiz-box{
+.quiz {
+  .quiz-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 610px;
-    max-width: 1394px;
+    max-width: 1395px;
     background-color: #f5f5f5;
     @extend %proximaNovaBold;
     font-size: 20px;
     text-align: center;
-    margin: 114px 0 43px;
+    margin: 114px 0 70px;
     border: solid 1px #e3e3e3;
     outline: 3px solid #fff; 
     outline-offset: -20px; /* Выводим рамку внутри элемента */
     border-radius: 7px;
     position: relative;
-    &__num{
+    flex-grow: 1;
+    &__top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-bottom: 40px;
+    }
+    &__num {
       font-size: 16px;
       color: #fff;
       position: absolute;
@@ -29,9 +36,10 @@
       right: 0;
       left: 0;
       margin: auto;
+      text-align: center;
     }
-    &__icon{
-      &::before{
+    &__icon {
+      &::before {
         background: linear-gradient(180deg, #4BC940 0%, #37A52E 100%);;
         width: 52px;
         height: 52px;
@@ -47,7 +55,7 @@
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
       }
     }
-    &__title{
+    &__title {
       margin-top: 85px;
       @extend %proximaNovaBold;
       font-size: 32px;
@@ -55,7 +63,18 @@
       color:#353535;
       margin-bottom: 59px;
     }
-    &__drop{
+    &__subtitle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__subtitle-text {
+      font-size: 18px;
+      @extend %proximaNovaRegular;
+      line-height: 36px;
+      margin-left: 10px;
+    }
+    &__drop {
         max-width: 152px;
         height: auto;
         display: flex;
@@ -63,7 +82,7 @@
         align-items: center;
         justify-content: center;
         padding-top: 55px;
-          span{
+          span {
             background: #CCCCCC;
             width: 8px;
             height: 8px;
@@ -73,50 +92,87 @@
             padding: 0;
           }
     }
-    .quiz-box__drop span:first-child{
+    .quiz-box__drop--1 span:first-child {
       background: #FF7B31;
     }
-    .filter{
-      &__form{
+    .quiz-box__drop--2 span:nth-child(-n+2) {
+      background: #FF7B31;
+    }
+    .quiz-box__drop--3 span:nth-child(-n+3) {
+      background: #FF7B31;
+    }
+    .quiz-box__drop--4 span:nth-child(-n+4) {
+      background: #FF7B31;
+    }
+    .quiz-box__drop--5 span:nth-child(-n+5) {
+      background: #FF7B31;
+    }
+    .quiz-box__drop--6 span:nth-child(-n+6) {
+      background: #FF7B31;
+    }
+    .quiz-box__drop--7 span:nth-child(-n+7) {
+      background: #FF7B31;
+    }
+    .filter-quiz {
+      &__form {
         display: flex;
         gap: 60px;
         margin-bottom: 85px;
       }
-      &__box{
+      &__form--2 {
+        margin-bottom: 0;
+      }
+      &__box {
         max-height: 222px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
       }
-      &__label{
+      
+      &__label {
         margin-bottom: 14px;
         margin-left: 26px;
         @extend %proximaNovaRegular;
         font-size: 16px;
       }
-      &__input{
+      &__input {
         width: 1px;
         height: 1px;
         overflow: hidden;
         clip: rect(0 0 0 0);
         position: absolute;
-        &:checked + .filter__checkbox{
+        &:checked + .filter-quiz__checkbox {
           background-image: url('../images/check-quiz.svg');
           background-position: center center;
           background-repeat: no-repeat;
           background-color: #FF8D01;
         }
       }
-      &__label-text{
+      &__input-radio {
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        position: absolute;
+        &:checked + .filter-quiz__checkbox {
+          background-image: url('../images/radio-quiz.svg');
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-color: #fff;
+        }
+      }
+      &__label-text {
         margin-left: 0;
       }
-      &__input-text{
+      &__input-text {
         max-width: 178px;
         height: 37px;
         cursor: pointer;
+        border: 1px solid #CFCFCF;
+        border-radius: 5px;
       }
       
-      &__checkbox{
+      &__checkbox {
         width: 20px;
         height: 20px;
         border: 1px solid #CFCFCF;
@@ -127,9 +183,12 @@
         border-radius: 3px;
         cursor: pointer;
       }
+      &__checkbox-radio {
+        border-radius: 50px;
+      }
     }
-    .next{
-      &__btn{
+    .next-quiz {
+      &__btn {
         font-size: 21px;
         color: #fff;
         @extend %proximaNovaBold;
@@ -140,13 +199,12 @@
         border-radius: 5px;
         cursor: pointer;
         display: flex;
-        // justify-content: space-evenly;
         position: relative;
       }
-      &__btn-text{
+      &__btn-text {
         line-height: 45px;
         margin-left: 33px;
-        &::after{
+        &::after {
           content: '';
           width: 1px;
           height: 47px;
@@ -156,18 +214,167 @@
           right: 50px;
         }
       }
-      &__btn-img{
+      &__btn-img {
         position:absolute;
         top: 18px;
         right: 18px;
       }
     }
-    
-    
-    
-    
+    &__content-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      align-items: flex-start;
+      gap: 60px;
+      @extend %proximaNovaRegular;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    &__content {
+      max-width: 530px;
+    }
+    &__content-text {
+      margin-bottom: 35px;
+
+    }
+    &__content-desc {
+      padding: 17px 0;
+      margin-bottom: 22px;
+      background-color: #fff;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(180deg, #4BC940 0%, #37A52E 100%);
+        border-radius: 50px;
+        min-width: 45px;
+        height: 45px;
+        margin: 25px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+      }
+      p {
+        max-width: 420px;
+      }
+    }
+    &__content-box {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+    &__content-holder {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border: 1px solid #C1C1C1;
+      border-radius: 5px;
+      width: 268px;
+      div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 50px;
+        min-width: 45px;
+        height: 45px;
+        margin: 15px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+      }
+      p {
+        font-size: 14px;
+        @extend %proximaNovaBold;
+      }
+    }
+    &__modal{
+      padding-left: 1px;
+      display: flex;
+      flex-direction: column;
+      max-width: 315px;
+    }
+    &__modal-input {
+      background-color: #fff;
+      border: 1px solid #C1C1C1;
+      padding: 7px 0 7px 20px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      width: 315px;
+    }
+    &__modal-btn {
+      font-size: 16px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    &__modal-btn[type="button"] {
+      background-color:EDEDED;
+      border: 1px solid #BEBEBE;
+      border-radius: 7px;
+      padding: 6px 48px;
+      @extend %proximaNovaRegular;
+      line-height: 35px;
+    }
+    &__modal-btn[type="submit"] {
+      background: linear-gradient(180deg, #FFB800 0%, #FF8000 100%);
+      border-radius: 7px;
+      border: none;
+      padding: 6px 48px;
+      color: #fff;
+      @extend %proximaNovaBold;
+      line-height: 35px;
+    }
+    &__modal-check{
+      font-size: 14px;
+      @extend %proximaNovaRegular;
+    }
   }
-  
+  .quiz-box--2 {
+    margin-top: 0;
+  }
+  .quiz-box--3 {
+    text-align: left;
+  }
+  .prev-next {
+    &__btn {
+      display: flex;
+      flex-grow: 1;
+      margin-bottom: 75px;
+      align-items: flex-end;
+      .prev-quiz {
+        &__btn {
+          font-size: 21px;
+          color: #787878;
+          @extend %proximaNovaBold;
+          background: #EDEDED;
+          border: 1px solid #BEBEBE;
+          width: 178px;
+          height: 47px;
+          border-radius: 5px;
+          cursor: pointer;
+          display: flex;
+          position: relative;
+        }
+        &__btn-text {
+          line-height: 45px;
+          margin-left: 75px;
+          &::after {
+            content: '';
+            width: 1px;
+            height: 47px;
+            background-color: #BEBEBE;
+            position: absolute;
+            top: 0;
+            right: 130px;
+          }
+        }
+        &__btn-img {
+          position:absolute;
+          top: 18px;
+          right: 145px;
+        }
+      }
+    }
+  }
 }
 
 
